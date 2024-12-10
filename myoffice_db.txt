@@ -1,0 +1,33 @@
+ USE railway;
+
+CREATE TABLE usuario (
+    id_usuario INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE, 
+    celular VARCHAR(100) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    foto LONGTEXT,
+    PRIMARY KEY (id_usuario)
+);
+
+
+
+
+CREATE TABLE sala (
+    id_sala INT NOT NULL AUTO_INCREMENT,
+    cep VARCHAR(100) NOT NULL,
+    estado VARCHAR(100) NOT NULL,
+    cidade VARCHAR(255) NOT NULL,
+    bairro VARCHAR(255) NOT NULL,
+    rua VARCHAR(255) NOT NULL,
+    numero INT NOT NULL,
+    preco DECIMAL(11,2) NOT NULL,
+    capacidade INT NOT NULL, 
+    descricao TEXT NOT NULL, 
+    imagem LONGTEXT NOT NULL,
+    latitude VARCHAR(100) ,
+    longitude VARCHAR(100) ,
+    usuario_id INT NOT NULL,
+    PRIMARY KEY (id_sala),
+    FOREIGN KEY(usuario_id) REFERENCES usuario (id_usuario)
+);
